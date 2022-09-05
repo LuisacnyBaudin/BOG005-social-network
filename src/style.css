@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+  /*No toma en cuenta los padding en general*/
+  background-color: #F2F2F2;
+}
+
+body {
+  margin: 0%;
+  padding: 0%;
+  width: 100%;
+  text-align: center;
+}
+
+#containerLogo {
+  background-color: aqua;
+  height: 100vh;
+  width: 50%;
+  font-size: 25px;
+  /*
+  height: 100%;
+  rompe la estructura de alinacion, por encima de todo
+  top: 0;
+  margin-left: 5%;
+  text-align: center;
+  float: left;
+  margin-right: 50%; */
+}
+
+#containerLogo img {
+  width: 50%;
+  margin-top: 50px;
+}
+
+#containerInit {
+  background-color: blue;
+  background-size: cover;
+  background-position: center;
+  width: 50%;
+  height: 100vh;
+  /* height: 100%;
+  left: 0;
+  text-align: center;
+  right: 0;
+  margin-left: 50%;
+  align-items: center;
+  padding: 15px 0; */
+}
+#homepage{
+  display: flex;
+}
