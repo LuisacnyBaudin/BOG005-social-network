@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+background-color: #F2F2F2;
+margin:0%;
+padding: 0%;
+width: 100%;
+text-align: center;
+}
+
+#homepage{
+display: flex;
+}
+#containerLogo{
+  height: 100vh;
+  width: 50%;
+  font-size: 30px;
+  border-right: #F58634 solid;
+}
+#containerLogo img {
+    width: 40%;
+    margin-top: 80px;
+    margin-bottom: 8px;
+}  
+aside{
+  margin-top: 70px;
+  background-position: center;
+  width: 50%;
+}
+aside h2{
+    margin-bottom: 50px;
+    font-size: 40px;
+}
+aside h4{
+    margin-bottom: 10px;
+    margin-top: 80px;
+    font-size: 20px;
+    text-align: center;
+}
+button{
+    margin-bottom: 5px;
+    background-color: transparent;
+    width: 210px;
+    height: 45px;
+    cursor: pointer;
+    border:#F58634 2px solid;
+    border-radius: 10px;
+    color: black;
+    font-size: 15px;
+}
+
+.buttonGoogle{
+ padding: 10px;
+}
+.logo-google{
+    width: 30px;
+    height: 25px;
+    float:left;
+}
+.buttonSignin{
+margin-bottom: 100px;
+}
