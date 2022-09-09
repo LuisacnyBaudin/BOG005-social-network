@@ -1,6 +1,6 @@
 * {
-    box-sizing: border-box;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  font-family: 'Maven Pro', sans-serif;
 }
 body{
 background-color: #F2F2F2;
@@ -9,7 +9,6 @@ padding: 0%;
 width: 100%;
 text-align: center;
 }
-
 #homepage{
 display: flex;
 }
@@ -47,8 +46,9 @@ button{
     cursor: pointer;
     border:#F58634 2px solid;
     border-radius: 10px;
-    color: black;
     font-size: 15px;
+    transition: transform .2s ease;
+    transform:scale(1.1);
 }
 
 .buttonGoogle{
@@ -62,3 +62,23 @@ button{
 .buttonSignin{
 margin-bottom: 100px;
 }
+
+/* Responsive -------------------- */
+@media all and (max-width: 820px) {
+    
+body {
+font-size:12px;
+}
+#homepage{
+    display: flex;
+}
+#containerLogo{
+    width: 50%;
+    font-size: 20px;
+  }
+aside{
+    margin-top: 70px;
+    background-position: center;
+    width: 50%;
+}
+    }
