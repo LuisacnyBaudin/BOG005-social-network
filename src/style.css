@@ -2,17 +2,20 @@
   box-sizing: border-box;
   font-family: 'Maven Pro', sans-serif;
 }
-body{
-background-color: #F2F2F2;
-margin:0%;
-padding: 0%;
-width: 100%;
-text-align: center;
+
+body {
+  background-color: #F2F2F2;
+  margin: 0%;
+  padding: 0%;
+  width: 100%;
+  text-align: center;
 }
-#homepage{
-display: flex;
+
+#homepage {
+  display: flex;
 }
-#containerLogo{
+
+#containerLogo {
   height: 100vh;
   width: 50%;
   font-size: 30px;
@@ -20,58 +23,156 @@ display: flex;
 }
 
 #containerLogo img {
-    width: 40%;
-    margin-top: 30px;
-}  
-aside{
+  width: 40%;
+  margin-top: 30px;
+}
+
+aside {
   margin-top: 70px;
   background-position: center;
   width: 50%;
 }
-h1{
+
+h1 {
   margin-top: 0%;
   margin-bottom: 5%;
 }
-aside h2{
-    margin-bottom: 50px;
-    font-size: 40px;
-}
-aside h4{
-    margin-bottom: 10px;
-    margin-top: 80px;
-    font-size: 20px;
-    text-align: center;
-}
-button{
-    margin-bottom: 5px;
-    background-color: transparent;
-    width: 210px;
-    height: 45px;
-    cursor: pointer;
-    border:#F58634 2px solid;
-    border-radius: 10px;
-    font-size: 15px;
-    transition: transform .2s ease;
-    transform:scale(1.1);
+
+aside h2 {
+  margin-bottom: 50px;
+  font-size: 40px;
 }
 
-.buttonGoogle{
- padding: 10px;
+aside h4 {
+  margin-bottom: 10px;
+  margin-top: 80px;
+  font-size: 20px;
+  text-align: center;
 }
-.logo-google{
-    width: 30px;
-    height: 25px;
-    float:left;
+
+button {
+  margin-bottom: 5px;
+  background-color: transparent;
+  width: 210px;
+  height: 45px;
+  cursor: pointer;
+  border: #F58634 2px solid;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: transform .2s ease;
+  transform: scale(1.1);
 }
-.buttonSignin{
-margin-bottom: 100px;
+
+.buttonGoogle {
+  padding: 10px;
 }
-p{
+
+.logo-google {
+  width: 30px;
+  height: 25px;
+  float: left;
+}
+
+.buttonSignin {
+  margin-bottom: 100px;
+}
+
+p {
   text-align: justify;
   padding-left: 15%;
   padding-right: 16%;
   margin-top: 0%;
 }
+
+#pagRegister {
+  display: inline-grid;
+  margin: 80px;
+  padding: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#pagRegister label {
+  position: relative;
+  background-color: transparent;
+  height: 30px;
+}
+
+#pagRegister input {
+  width: 300px;
+  height: 50px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.buttonNext {
+  position: fixed;
+  background-color: #F2CFBB;
+  margin-top: 450px;
+  width: 200px;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  right: 30px;
+}
+
+.buttonNext:hover {
+  background-color: #F58634;
+  color: white;
+}
+
+header{
+  position: fixed;
+  background-color: #F2CFBB;
+  display: block;
+  top: 0;
+  width: 100%;
+  height: 50px;
+}
+header h1{
+  margin-top: 10px;
+}
+
+#backHome{
+  position: fixed;
+  left: 10px;
+  background: #F2CFBB url(./imagenes/angle-left.png) no-repeat center center;
+  background-size: 80% 100%;
+  width: 35px;
+  height: 30px;
+  border: none;
+  margin-top: 10px;
+}
+#pagSingIn{
+  display: inline-grid;
+  margin: 80px;
+  padding: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+#pagSingIn label {
+  position: relative;
+  background-color: transparent;
+  height: 30px;
+}
+#pagSingIn input {
+  width: 300px;
+  height: 50px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 20px;
+}
+#passwordRec{
+  border: none;
+}
+#SignUp{
+  border: none;
+}
+
 /* 
 Responsive --------------------
 @media all and (max-width: 820px) {
@@ -93,9 +194,9 @@ aside{
 }
     } */
 
-    /* Responsive -------------------- */
-@media only screen and (max-width : 600px){
-  #containerLogo{
+/* Responsive -------------------- */
+@media only screen and (max-width : 600px) {
+  #containerLogo {
     position: fixed;
     z-index: 3;
     width: 100%;
