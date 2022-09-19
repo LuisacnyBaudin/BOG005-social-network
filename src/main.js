@@ -1,20 +1,13 @@
-import {viewNew} from './views/viewNew.js'
-import "./lib/firebaseImp.js"
-import {viewRegister} from './views/registerNew.js'
-import { viewSingIn } from './views/singIn.js';
-//Mostrar nuestro HTML "Home"
-//Mostrar la pag de RegisterNumber
-//Mostrar la pag de Login. 
+// Este es el punto de entrada de tu aplicacion
+//import { firebaseInit } from './firebase/firebase-init.js';
+import { changeView } from './view-controler/router.js';
 
-const rootDiv= document.getElementById("root");
-rootDiv.append(viewNew());
+// Funcionalidad para las vistas
 
-window.addEventListener('hashchange', () => {
-    rootDiv.innerHTML = ''
+const init = () => {
+  firebaseInit();
+  changeView(window.location.hash);
+  window.addEventListener('hashchange', () => changeView(window.location.hash));
+};
 
-    if(window.location.hash === "#registerEmail"){
-        rootDiv.append(viewRegister());
-    } else if(window.location.hash === "#Login"){        
-        rootDiv.append(viewSingIn());
-    }
-});
+window.addEventListener('load', init); // llama a init una vez que la pagina este cargada
