@@ -1,8 +1,9 @@
 import {SingIn} from '../lib/firebaseImp.js'
+import { onNavigate } from '../viewRoot/router.js';
 
-
-export const viewNew = () =>{
-    const viewInit = `
+export const Homepage = () =>{
+  const viewInit = document.createElement('main');
+    viewInit.innerHTML = `
      <main id="homepage">
       <section id="containerLogo">
         <img src="./Imagenes/logoquimicomanz-removebg-preview1.png" class="logo-home">
@@ -16,14 +17,20 @@ export const viewNew = () =>{
         <h3>ó</h3>
         <button id="buttonNumber" class="buttonNumber"><a href="#registerEmail"> Sing up with Email </a></button>
         <h4>Already registered?</h4>
-        <button id="buttonSingin" class="buttonSingin"><a href="#Login"> Sing in </a></button>
+        <button id="buttonSingin" class="buttonSingin"> Sing in </button>
         </aside>
     </main>
     `;
 
-    const registerInit = document.createElement('main');
-    registerInit.innerHTML = viewInit;
-    registerInit.querySelector("#buttonGoogle").addEventListener("click", SingIn);
-    return registerInit
+    console.log(document.getElementById("buttonSingin"))
+    document.querySelector("#buttonGoogle").addEventListener("click", SingIn);
+    
+
+    // const initialHome = document.createElement('main');
+    // initialHome.innerHTML = viewInit;
+    // console.log(document.querySelector("#buttonSingin"))
+    // document.querySelector("#buttonSingin").addEventListener("click", ()=>onNavigate("/SingIn"));
+    // return initialHome
+    return viewInit;
 }
 

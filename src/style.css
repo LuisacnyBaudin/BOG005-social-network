@@ -148,9 +148,9 @@ header h1{
 }
 #pagSingIn{
   display: inline-grid;
-  margin: 80px;
-  padding: 20px;
-  font-size: 25px;
+  margin: 75px;
+  padding: 10px;
+  font-size: 18px;
   font-weight: bold;
 }
 #pagSingIn label {
@@ -166,11 +166,53 @@ header h1{
   text-align: center;
   font-size: 20px;
 }
-#passwordRec{
+#pagSingIn .passwordRec{
+  position: absolute;
   border: none;
+  right: 495px;
+  margin-top: 280px;
 }
 #SignUp{
   border: none;
+  position: absolute;
+  border: none;
+  right: 580px;
+  margin-top: 425px;
+}
+#pagSingIn .buttonGoogle{
+  margin-left: 15px;
+  margin-bottom: 5px;
+  background-color: transparent;
+  width: 280px;
+  border-left-width: 20px;
+  height: 45px;
+  cursor: pointer;
+  border: #F58634 2px solid;
+  border-radius: 20px;
+  font-size: 15px;
+}
+#pagSingIn #Login{
+  margin-left: 15px;
+  background-color:#34a853b2;
+  border:#34A853 2px solid;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  width: 270px;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+#Login:hover{
+  color: white;
+}
+#pagSingIn h3{
+  font-size: 18px;
+}
+#pagSingIn p{
+  font-size: 18px;
+  text-align:justify;
+  margin-top: 10px;
 }
 
 /* 

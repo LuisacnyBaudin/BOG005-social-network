@@ -1,10 +1,10 @@
-import { SingIn } from '../lib/firebaseImp.js'
 
-export const viewSingIn = () => {
-    const viewSingIn = `
+
+export const viewHomeWall = () => {
+    const viewWall= `
     <header id="header">
     <button id="backHome"></button>
-    <h1>Sing In</h1>
+    <h1>este es el Muro</h1>
     </header>
     <section id="pagSingIn">
     <button id="buttonGoogle" class="buttonGoogle"><a href="#" class="fa fa-google"> Login with Google </a>
@@ -21,8 +21,8 @@ export const viewSingIn = () => {
     </section>
     `;
 
-    const pagLogin = document.createElement('section');
-    pagLogin.innerHTML = viewSingIn;
-    pagLogin.querySelector("#buttonGoogle").addEventListener("click", SingIn);
-    return pagLogin;
+    const pagWall = document.createElement('section');
+    pagWall.innerHTML = viewWall;
+    pagLogin.querySelector("#Login").addEventListener("click", viewHomepage);
+    return pagWall;
 }
