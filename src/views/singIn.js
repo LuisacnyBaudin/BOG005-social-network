@@ -1,6 +1,6 @@
-import { SingIn } from '../lib/firebaseImp.js'
+// import { SingIn } from '../lib/firebaseImp.js'
 
-export const viewSingIn = () => {
+export default () => {
     const viewSingIn = `
     <header id="header">
     <button id="backHome"></button>
@@ -23,6 +23,7 @@ export const viewSingIn = () => {
 
     const pagLogin = document.createElement('section');
     pagLogin.innerHTML = viewSingIn;
-    pagLogin.querySelector("#buttonGoogle").addEventListener("click", SingIn);
+
+    /* pagLogin.querySelector("#buttonGoogle").addEventListener("click", SingIn); */
     return pagLogin;
 }
