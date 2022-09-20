@@ -1,5 +1,5 @@
 import {SingIn} from '../lib/firebaseImp.js'
-import { onNavigate } from '../viewRoot/router.js';
+
 
 export const Homepage = () =>{
   const viewInit = document.createElement('main');
