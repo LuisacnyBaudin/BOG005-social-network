@@ -1,7 +1,5 @@
-
-
-export const viewRegister = () =>{
-    const newRegister = `
+export default () => {
+  const newRegister = `
   <header id="header">
   <button id="backHome"> </button>
   <h1>Register</h1>
@@ -19,7 +17,7 @@ export const viewRegister = () =>{
     </section>
     `;
 
-    const registerSingIn = document.createElement('section');
-    registerSingIn.innerHTML = newRegister;
-    return registerSingIn;
+  const registerSingIn = document.createElement('section');
+  registerSingIn.innerHTML = newRegister;
+  return registerSingIn;
 }

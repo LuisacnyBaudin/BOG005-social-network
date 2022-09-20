@@ -1,7 +1,5 @@
-
-
-export const viewHomeWall = () => {
-    const viewWall= `
+export default () => {
+    const viewWall = `
     <header id="header">
     <button id="backHome"></button>
     <h1>este es el Muro</h1>
@@ -23,6 +21,7 @@ export const viewHomeWall = () => {
 
     const pagWall = document.createElement('section');
     pagWall.innerHTML = viewWall;
-    pagLogin.querySelector("#Login").addEventListener("click", viewHomepage);
+
+    // pagLogin.querySelector("#Login").addEventListener("click", viewHomepage);
     return pagWall;
 }
