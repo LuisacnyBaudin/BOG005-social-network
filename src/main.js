@@ -1,11 +1,11 @@
 // Este es el punto de entrada de tu aplicacion
-//import { firebaseInit } from './firebase/firebase-init.js';
+import { firebaseInit} from './lib/firebaseConf.js';
 import { changeView } from '../viewRoot/router.js'
 
 // Funcionalidad para las vistas
 
 const init = () => {
-  // firebaseInit();
+  firebaseInit();
   changeView(window.location.hash);
   window.addEventListener('hashchange', () => changeView(window.location.hash));
 };

@@ -1,4 +1,4 @@
-//import { SingIn } from '../lib/firebaseImp.js'
+import {loginGoogleEvent} from './firebase-root.js';
 
 export default () => {
   const viewInit = document.createElement('main');
@@ -14,15 +14,20 @@ export default () => {
         <button id="buttonGoogle" class="buttonGoogle"><a href="#" class="fa fa-google"> Sing up with Google </a>
         <img src="./imagenes/logo google.png" class="logo-google"></button>
         <h3>ó</h3>
-        <button id="buttonNumber" class="buttonNumber"> Sing up with Email </a></button>
+        <button id="buttonNumber" class="buttonNumber"> Sing up with Email </button>
         <h4>Already registered?</h4>
-        <button id="buttonSingin" class="buttonSingin"> Sing in </button>
+        <button id="buttonSingin" class="buttonSingin" onclick="buttonSingin()"> Sing in </button>
         </aside>
     </main>
     `;
     viewInit.innerHTML = homePage;
+    const buttonSignin = viewInit.querySelector('#buttonSignin');
+    const buttonGoogle = viewInit.querySelector('#buttonGoogle');
+
+    buttonSignin.addEventListener('click', () => {
+    // (usuarioSignIn, passwordSignIn);
+     });
+    buttonSignin.addEventListener('click', buttonSignin);
+    buttonGoogle.addEventListener('click', SingInGoogle);
     return viewInit;
-
-  //document.querySelector("#buttonGoogle").addEventListener("click", SingIn);
-}
-
+  }

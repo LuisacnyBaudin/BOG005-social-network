@@ -1,4 +1,4 @@
-// import { SingIn } from '../lib/firebaseImp.js'
+import {loginUserEvent, loginGoogleEvent} from './firebase-root.js';
 
 export default () => {
     const viewSingIn = `
@@ -15,15 +15,25 @@ export default () => {
     <label for="text"> Password </label>
     <input type="password" id="password" name="password">
     <button id="passwordRec" class="passwordRec"><a href="#">Forgot password?</a></button>
-    <button id="Login" class"Login">Login</button>
+    <button type="submit" id="Login" class"Login">Login</button>
+    <div id="errorMessage"></div>
     <p>¿Don't have an account?</p>
-    <button id="SignUp" class="SingUp"><a href="#">Sign up</a></button>
+    <button type="button" id="SignUp" class="SingUp"><a href="#">Sign up</a></button>
     </section>
     `;
-
+    
     const pagLogin = document.createElement('section');
     pagLogin.innerHTML = viewSingIn;
+    //Cambio de botones. 
+  const buttonSignIn = pagLogin.querySelector('#Login');
+  const buttonGoogle = pagLogin.querySelector('#buttonGoogle');
+  const errorContainer = pagLogin.querySelector('#errorMessage');
 
-    /* pagLogin.querySelector("#buttonGoogle").addEventListener("click", SingIn); */
+  buttonSignIn.addEventListener('click', () => {
+    const usuarioSignIn = pagLogin.querySelector('#usuarioSignIn').value;
+    const passwordSignIn = pagLogin.querySelector('#contraseñaSignIn').value;
+    loginUserEvent(usuarioSignIn, passwordSignIn, errorContainer);
+  });
+  buttonGoogle.addEventListener('click', loginGoogleEvent);
     return pagLogin;
 }
