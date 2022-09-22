@@ -1,27 +1,24 @@
 export default () => {
     const viewWall = `
-    <header id="header">
-    <button id="backHome"></button>
-    <h1>este es el Muro</h1>
+    <header id="headerWall">
+    <button id="profile"></button>
+    <button id="singOut"></button>
+    <input type="text" placeholder="Search for creators and projects" id="searchtwo">
+    <button type="submit" id="search"></button>
     </header>
-    <section id="pagSingIn">
-    <button id="buttonGoogle" class="buttonGoogle"><a href="#" class="fa fa-google"> Login with Google </a>
-    <img src="./imagenes/logo google.png" class="logo-google"></button>
-    <h3>ó</h3>
-    <label for="text">  Username or E-mail </label>
-    <input type="text" id="userName" name="userName">
-    <label for="text"> Password </label>
-    <input type="password" id="password" name="password">
-    <button id="passwordRec" class="passwordRec"><a href="#">Forgot password?</a></button>
-    <button id="Login" class"Login">Login</button>
-    <p>¿Don't have an account?</p>
-    <button id="SignUp" class="SingUp"><a href="#">Sign up</a></button>
+    <section id="pagWall">
+    <input type="text" placeholder="What are you thinking?" id="postUser">
+    <button type="submit" id="sendPost"></button>
+    <input type="text" id="postpublication">
+    <button type="submit" id="heartImg"></button>
+    <button type="submit" id="trashImg"></button>
+    <button type="submit" id="editImg"></button>
+    <input type="text" id="postpublicationtwo">
     </section>
     `;
 
     const pagWall = document.createElement('section');
     pagWall.innerHTML = viewWall;
 
-    // pagLogin.querySelector("#Login").addEventListener("click", viewHomepage);
     return pagWall;
 }
