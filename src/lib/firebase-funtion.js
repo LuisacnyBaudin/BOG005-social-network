@@ -1,3 +1,4 @@
+
 export {
     getAuth,
     createUserWithEmailAndPassword,
@@ -24,4 +25,4 @@ export {initializeApp} from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-a
 //     deleteDoc,
 //     arrayUnion,
 //     arrayRemove,
-//   } from 'https://www.gstatic.com/firebasejs/9.6.9/firebase-firestore.js';
+//   } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js';
