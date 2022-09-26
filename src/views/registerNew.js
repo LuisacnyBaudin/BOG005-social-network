@@ -1,4 +1,4 @@
-import { createUserAccount } from '../lib/firebase-auth.js';
+import { createUserAccount } from '../lib/firebaseAuth.js';
 import { loginUserEvent } from '../lib/firebase-root.js';
 
 
@@ -43,7 +43,7 @@ export default () => {
         console.log(response);
       })
       .catch((error) => {
-        const errorContainer = divElem.querySelector('#errorMessage');
+        const errorContainer = registerSingIn.querySelector('#errorMessage');
         const templateError = `<div class="error"><p> ${error.message}</p></div>`;
         errorContainer.innerHTML = templateError;
       });
