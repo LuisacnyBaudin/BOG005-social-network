@@ -1,5 +1,3 @@
-
-//import {app} from './firebaseConf.js';
 import {getAuth,signInWithEmailAndPassword,createUserWithEmailAndPassword,GoogleAuthProvider,signInWithPopup,
 signOut} from './firebase-funtion.js';
 

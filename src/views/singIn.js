@@ -1,4 +1,14 @@
-import {loginUserEvent, loginGoogleEvent} from './firebase-root.js';
+import {loginUserEvent, loginGoogleEvent} from '../lib/firebase-root.js';
+import { auth, provider } from '../lib/firebaseAuth.js';
+
+export const singinUser= (section) => {
+  const usuarioSignIn = section.querySelector('#userName').value;
+  const passwordSignIn = section.querySelector('#password').value;
+    loginUserEvent(auth, usuarioSignIn, passwordSignIn);
+};
+export const logoGoogleClick = () => {
+  loginGoogleEvent(auth, provider);
+};
 
 export default () => {
     const viewSingIn = `
@@ -25,15 +35,15 @@ export default () => {
     const pagLogin = document.createElement('section');
     pagLogin.innerHTML = viewSingIn;
     //Cambio de botones. 
-  const buttonSignIn = pagLogin.querySelector('#Login');
-  const buttonGoogle = pagLogin.querySelector('#buttonGoogle');
-  const errorContainer = pagLogin.querySelector('#errorMessage');
 
-  buttonSignIn.addEventListener('click', () => {
-    const usuarioSignIn = pagLogin.querySelector('#usuarioSignIn').value;
-    const passwordSignIn = pagLogin.querySelector('#contraseñaSignIn').value;
-    loginUserEvent(usuarioSignIn, passwordSignIn, errorContainer);
-  });
-  buttonGoogle.addEventListener('click', loginGoogleEvent);
-    return pagLogin;
+    const buttonRegister= pagLogin.querySelector('#SignUp');
+    buttonRegister.addEventListener('click', () => {
+    window.location.hash= "#/register"; 
+    });
+  const buttonSingin = pagLogin.querySelector('#Login');
+  buttonSingin.addEventListener('click', () => singinUser(pagLogin));
+
+   const buttonGoogle= pagLogin.querySelector('#buttonGoogle');
+   buttonGoogle.addEventListener('click', () => logoGoogleClick(pagLogin));
+  return pagLogin;
 }
