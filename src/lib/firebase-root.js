@@ -1,13 +1,30 @@
-import { logOut,signInGoogle,loginUser,createUserAccount, provider} from './firebaseAuth.js';
-  import { changeView } from '../viewRoot/router.js';
+import { app } from './firebaseConf.js';
+import { GoogleAuthProvider } from './firebase-funtion.js';
+import { logOut, provider, signInGoogle,loginUser,createUserAccount} from './firebaseAuth.js';
+import { changeView } from '../viewRoot/router.js';
 
   export const userNew = (usuarioSignUp, passwordSignUp) => {
     createUserAccount(usuarioSignUp, passwordSignUp)
       .then((userCredential) => {
        changeView('#/wall'); 
-      }).catch((error) => {
-        const templateError = `<div class="error"><p>${error.message}</p></div>`;
-        errorContainer.innerHTML = templateError;
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = document.querySelector('#errorMessage');
+        switch (errorCode) {
+          case 'auth/email-already-in-use':
+            errorMessage.innerHTML = 'Registered email, please enter a new one';
+            break;
+          case 'auth/invalid-email':
+            errorMessage.innerHTML = 'Invalid email';
+            break;
+          case 'auth/weak-password':
+            errorMessage.innerHTML = 'The password must contain at least 6 characters';
+            break;
+          default:
+            break;
+        }
+      // ..
       });
     };
  
@@ -18,8 +35,21 @@ import { logOut,signInGoogle,loginUser,createUserAccount, provider} from './fire
        changeView('#/wall');
       })
       .catch((error) => {
-        const templateError = `<div class="error"><p>${error.message}</p></div>`;
-        errorContainer.innerHTML = templateError;
+        const errorCode = error.code;
+        const errorMessage = document.querySelector('#errorMessage');
+        switch (errorCode) {
+          case 'auth/invalid-email':
+            errorMessage.innerHTML = 'Invalid email';
+            break;
+          case 'auth/user-not-found':
+            errorMessage.innerHTML = 'The user is not registered';
+            break;
+          case 'auth/wrong-password':
+            errorMessage.innerHTML = 'Incorrect password';
+            break;
+          default:
+            break;
+        }
       });
   };
     export const loginGoogleEvent = (auth, provider) => {
@@ -33,13 +63,13 @@ import { logOut,signInGoogle,loginUser,createUserAccount, provider} from './fire
      changeView('#/wall');
 
       })
-      // ...
+      //...
     .catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
     const errorMessage = error.message;
     // The email of the user's account used.
-    const email = error.customData.email;
+    const email = error.email;
     // The AuthCredential type that was used.
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
@@ -48,7 +78,8 @@ import { logOut,signInGoogle,loginUser,createUserAccount, provider} from './fire
   }  
 
     export const logOutEvent = (auth) => {
-    logOut(auth).then(() => {
+    logOut(auth)
+    .then(() => {
       changeView('#/');
 
     });

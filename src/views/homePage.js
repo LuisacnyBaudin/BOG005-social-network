@@ -1,4 +1,9 @@
 import {loginGoogleEvent} from '../lib/firebase-root.js';
+import { auth, provider } from '../lib/firebaseAuth.js';
+
+export const logoGoogleClick = () => {
+  loginGoogleEvent(auth, provider);
+};
 
 export default () => {
   const homePage = `
@@ -19,10 +24,12 @@ export default () => {
         </aside>
     </main>
     `;
+    
+     
     const viewInit = document.createElement('main');
     viewInit.innerHTML = homePage;
-   
-    
+
+   //Cambios de rutas
     const buttonEmail= viewInit.querySelector('#buttonEmail');
     buttonEmail.addEventListener('click', () => {
     window.location.hash="#/register"; 
@@ -31,9 +38,7 @@ export default () => {
     signIn.addEventListener('click', () => {
     window.location.hash = "#/singIn"; 
     });
-    
     const buttonGoogle= viewInit.querySelector('#buttonGoogle');
-    buttonGoogle.addEventListener('click', loginGoogleEvent);
-
+    buttonGoogle.addEventListener('click',() => logoGoogleClick(viewInit));
     return viewInit;
   };
