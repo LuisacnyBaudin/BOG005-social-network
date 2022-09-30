@@ -11,18 +11,18 @@ export {
 export {initializeApp} from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-app.js';
 
 
-//   export {
-//     getFirestore,
-//     collection,
-//     addDoc,
-//     query,
-//     getDocs,
-//     serverTimestamp,
+export {
+ getFirestore,
+    collection,
+    addDoc,
+    query,
+    getDocs,
+  serverTimestamp,
 //     orderBy,
-//     onSnapshot,
+onSnapshot,
 //     updateDoc,
 //     doc,
 //     deleteDoc,
 //     arrayUnion,
 //     arrayRemove,
-//   } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js';
+  } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js';

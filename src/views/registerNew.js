@@ -11,7 +11,7 @@ export const clickRegister = (section) => {
 
   if (voidInput) {
     errorMessageInput.innerHTML = 'You must enter a value in the field';
-  userNew(userNameSignUp,usuarioSignUp, passwordSignUp);
+  userNew(usuarioSignUp, passwordSignUp);
   successfulOk.innerHTML = '';
 }
 };
@@ -39,9 +39,15 @@ export default () => {
   const registerSingIn = document.createElement('section');
   registerSingIn.innerHTML = newRegister;
 
+  const buttonBack= registerSingIn.querySelector('#backHome');
+  buttonBack.addEventListener('click', () => {
+  window.location.hash = "#/"; 
+  });
+
   const buttonNext = registerSingIn.querySelector('#buttonNext');
   buttonNext.addEventListener('click', () => clickRegister(registerSingIn));
   return registerSingIn;
+  
 };
 
   

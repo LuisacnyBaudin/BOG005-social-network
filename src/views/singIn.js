@@ -38,8 +38,13 @@ export default () => {
 
     const buttonRegister= pagLogin.querySelector('#SignUp');
     buttonRegister.addEventListener('click', () => {
-    window.location.hash= "#/register"; 
+    window.location.hash = "#/register"; 
     });
+    const buttonBack= pagLogin.querySelector('#backHome');
+    buttonBack.addEventListener('click', () => {
+    window.location.hash = "#/"; 
+    });
+
   const buttonSingin = pagLogin.querySelector('#Login');
   buttonSingin.addEventListener('click', () => singinUser(pagLogin));
 

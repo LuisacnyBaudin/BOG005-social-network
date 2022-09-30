@@ -1,7 +1,8 @@
-import { app } from './firebaseConf.js';
+import { app, db} from './firebaseConf.js';
 import { GoogleAuthProvider } from './firebase-funtion.js';
 import { logOut, provider, signInGoogle,loginUser,createUserAccount} from './firebaseAuth.js';
 import { changeView } from '../viewRoot/router.js';
+import { addDoc, collection, query, getDocs} from './firebase-funtion.js';
 
   export const userNew = (usuarioSignUp, passwordSignUp) => {
     createUserAccount(usuarioSignUp, passwordSignUp)
@@ -83,4 +84,17 @@ import { changeView } from '../viewRoot/router.js';
       changeView('#/');
 
     });
+  };
+
+  export const savePost = (post, userName, date) => addDoc(collection(db, 'post'), {
+    post, userName, date
+  });
+  export const showsPost = async () => {
+    const querySnapshot = await getDocs(collection(db, 'post'));
+    return querySnapshot;
+  };
+  
+  export const onSnapshotFunction = () => {
+    const q = query(collection(db, 'post'));
+    return q;
   };

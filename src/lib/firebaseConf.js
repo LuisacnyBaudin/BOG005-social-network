@@ -2,7 +2,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "./firebase-funtion.js";
 //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.4/firebase-analytics.js";
-
+ import { getFirestore } from './firebase-funtion.js';
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -25,5 +25,6 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 //export const analytics = getAnalytics(app);
-
+// Initialize Firestore
+ export const db = getFirestore(app);
 
