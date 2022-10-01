@@ -21,8 +21,8 @@ export {
 //     orderBy,
 onSnapshot,
 //     updateDoc,
-//     doc,
-//     deleteDoc,
+doc,
+ deleteDoc,
 //     arrayUnion,
 //     arrayRemove,
   } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js';
