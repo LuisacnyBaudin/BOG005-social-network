@@ -2,7 +2,7 @@ import { app, db} from './firebaseConf.js';
 import { GoogleAuthProvider } from './firebase-funtion.js';
 import { logOut, provider, signInGoogle,loginUser,createUserAccount} from './firebaseAuth.js';
 import { changeView } from '../viewRoot/router.js';
-import { addDoc, collection, query, getDocs} from './firebase-funtion.js';
+import { addDoc, collection, query, getDocs, deleteDoc, doc} from './firebase-funtion.js';
 
   export const userNew = (usuarioSignUp, passwordSignUp) => {
     createUserAccount(usuarioSignUp, passwordSignUp)
@@ -97,4 +97,6 @@ import { addDoc, collection, query, getDocs} from './firebase-funtion.js';
   export const onSnapshotFunction = () => {
     const q = query(collection(db, 'post'));
     return q;
+
   };
+  export const deletePost = async (id, post) => await deleteDoc(doc(db, 'post', id));

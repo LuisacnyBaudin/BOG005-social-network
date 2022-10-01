@@ -1,8 +1,7 @@
 import { getAuth, serverTimestamp, onSnapshot } from '../lib/firebase-funtion.js';
-import { savePost, onSnapshotFunction, showsPost } from '../lib/firebase-root.js';
+import { savePost, onSnapshotFunction, showsPost, deletePost } from '../lib/firebase-root.js';
 
 const auth = getAuth();
-
 const callOnSnapShot = () => {
     const queryCollection = onSnapshotFunction();
     onSnapshot(queryCollection, (querySnapshot) => {
@@ -13,32 +12,29 @@ const callOnSnapShot = () => {
         });
     });
 };
-setTimeout(() => { callOnSnapShot(); }, 1000);
-
 const clickPost = (section) => {
     const userName = auth.currentUser;
     const actualDate = serverTimestamp();
     const postValue = section.querySelector('#postUser').value;
     savePost(postValue, userName.email, actualDate).then(() => {
-        paintPostview();
+        // paintPostview();
         const cleanPost = document.querySelector('#postUser');
         cleanPost.value = '';
     });
 };
 export const paintPostview = () => {
     showsPost().then((res) => {
-        viewPost.innerHTML = '';
-        res.forEach((e) => {            
+        const viewPost = document.createElement('section');
+        viewPost.setAttribute('class', 'gridSectionviewPost');
+        res.forEach((e) => {
             viewPost.appendChild(postView(e.id, e.data()));
-            containerPost.appendChild(viewPost);
         });
+        const containerPost = document.createElement('section');
+        containerPost.setAttribute('class', 'gridSectioncontainerPost');
+        containerPost.appendChild(viewPost);
+        document.getElementById("postList").append(containerPost);
     });
 };
-const viewPost = document.createElement('section');
-viewPost.setAttribute('class', 'gridSectionviewPost');
-const containerPost = document.createElement('section');
-containerPost.setAttribute('class', 'gridSectioncontainerPost');
-
 
 export default () => {
     const viewWall = `
@@ -56,6 +52,7 @@ export default () => {
     `;
 
     const pagWall = document.createElement('section');
+    pagWall.id = "postList"
     pagWall.innerHTML = viewWall;
     const sendPost = pagWall.querySelector('#sendPost');
 
@@ -74,6 +71,7 @@ export default () => {
     buttonSingOut.addEventListener('click', () => {
         window.location.hash = "#/";
     });
+    setTimeout(() => { callOnSnapShot(); }, 1000);
     return pagWall;
 };
 //Vista de nuestro segundo Post. 
@@ -83,26 +81,32 @@ export const postView = (idPost, post) => {
     const viewPostUser = document.createElement('section');
     const postPublic = `
 
-    <section class='containerWallPost'>
+   
     <section class='containerPost' id='postView'>
     <section class='userName'>${post.userName}</section>
-    <textarea name='post' id='textAreaPost' readonly="readonly">${post.post}</textarea>
      <section class='modalContainer' id='containerModal'>
      <section class='modal' id='modal'>
-     <textarea name='post' id='postUser' rows= 4 placeholder='What are you thinking?' autofocus>${post.post}</textarea>
-     <button class='btnEditPost' id='publicBtnEditPost'>Editar</button>
+     <textarea name='post' id='postUser' rows=5 readonly="readonly" autofocus>${post.post}</textarea>
      </section>
      </section>
       <section class='containerIconsPost'>
+      <button class='btnEditPost' id='publicBtnEditPost'></button>
       <button type="submit" id="heartImg"></button>
       <button type="submit" id="trashImg"></button>
-      <button type="submit" id="editImg"></button>
-     
       </section>
-      </section>
+      
          `;
     viewPostUser.innerHTML = postPublic;
-    console.log('ver: ', viewPostUser);
-    return viewPostUser
-};
-window.onload = paintPostview;
+    console.log("ver: ", viewPostUser)
+    const deleteFunction = (id, posts) => deletePost(id, posts);
+     
+    const buttonDelete = viewPostUser.querySelector('#trashImg');
+    buttonDelete.addEventListener('click', () => {
+        if (window.confirm('¿Estás seguro de eliminar el post?')) {
+            deleteFunction(idPost, post);
+        }
+});
+    return viewPostUser;
+}
+
+

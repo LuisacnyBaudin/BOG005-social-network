@@ -349,7 +349,7 @@ header h1 {
   position: absolute;
 }
 
-#editImg {
+#publicBtnEditPost{
   right: 30px;
   background: white url(./imagenes/edit.png) no-repeat center center;
   background-size: 80% 80%;
@@ -361,15 +361,26 @@ header h1 {
   right: 480px;
   position: absolute;
 }
-.gridSectionviewPost{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.gridSectioncontainerPost{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+
+.postUser{
+  width: 80%;
+  height: 60%;
+  border: transparent;
+  background: #F2F2F2;
+  margin-top: 3%;
+  border-radius: 10px;
+  font-family: 'Lato', sans-serif;
 }
 
+.gridSectionviewPost{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+/* .gridSectioncontainerPost{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+ */
 
 @media only screen and (max-width : 600px) {
   #containerLogo {
