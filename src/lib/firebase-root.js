@@ -1,9 +1,11 @@
+//Este root tiene todas las funciones declaradas en una constante. 
 import { app, db} from './firebaseConf.js';
 import { GoogleAuthProvider } from './firebase-funtion.js';
 import { logOut, provider, signInGoogle,loginUser,createUserAccount} from './firebaseAuth.js';
 import { changeView } from '../viewRoot/router.js';
 import { addDoc, collection, query, getDocs, deleteDoc, doc} from './firebase-funtion.js';
 
+//evento de firebase para registrar nuevo usuario y sus errores.
   export const userNew = (usuarioSignUp, passwordSignUp) => {
     createUserAccount(usuarioSignUp, passwordSignUp)
       .then((userCredential) => {
@@ -28,7 +30,7 @@ import { addDoc, collection, query, getDocs, deleteDoc, doc} from './firebase-fu
       // ..
       });
     };
- 
+ //evento de firease para verificar con el auth el usuario que ya esta registrado 
     export const loginUserEvent = (auth, usuarioSignIn, passwordSignIn) => {
     loginUser(auth, usuarioSignIn, passwordSignIn)
       .then((userCredential) => {
@@ -53,6 +55,7 @@ import { addDoc, collection, query, getDocs, deleteDoc, doc} from './firebase-fu
         }
       });
   };
+  //Registro con Google. 
     export const loginGoogleEvent = (auth, provider) => {
         signInGoogle(auth, provider)
       .then((result) => {
@@ -77,7 +80,7 @@ import { addDoc, collection, query, getDocs, deleteDoc, doc} from './firebase-fu
     alert(errorMessage);
   });
   }  
-
+//Evento salir 
     export const logOutEvent = (auth) => {
     logOut(auth)
     .then(() => {
@@ -85,6 +88,7 @@ import { addDoc, collection, query, getDocs, deleteDoc, doc} from './firebase-fu
 
     });
   };
+//Desde aca empieza a conectarse a fireStore. 
 
   export const savePost = (post, userName, date) => addDoc(collection(db, 'post'), {
     post, userName, date
@@ -100,3 +104,4 @@ import { addDoc, collection, query, getDocs, deleteDoc, doc} from './firebase-fu
 
   };
   export const deletePost = async (id, post) => await deleteDoc(doc(db, 'post', id));
+  export const editPost = async (id, post) => await getDocs(doc(db, 'post', id));

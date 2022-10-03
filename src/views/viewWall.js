@@ -1,5 +1,5 @@
 import { getAuth, serverTimestamp, onSnapshot } from '../lib/firebase-funtion.js';
-import { savePost, onSnapshotFunction, showsPost, deletePost } from '../lib/firebase-root.js';
+import { savePost, onSnapshotFunction, showsPost, deletePost, editPost } from '../lib/firebase-root.js';
 
 const auth = getAuth();
 const callOnSnapShot = () => {
@@ -90,6 +90,7 @@ export const postView = (idPost, post) => {
      </section>
      </section>
       <section class='containerIconsPost'>
+      <button class='btnPublicpost' id='btnPublicpost'>Public</button>
       <button class='btnEditPost' id='publicBtnEditPost'></button>
       <button type="submit" id="heartImg"></button>
       <button type="submit" id="trashImg"></button>
@@ -99,13 +100,28 @@ export const postView = (idPost, post) => {
     viewPostUser.innerHTML = postPublic;
     console.log("ver: ", viewPostUser)
     const deleteFunction = (id, posts) => deletePost(id, posts);
-     
+
     const buttonDelete = viewPostUser.querySelector('#trashImg');
     buttonDelete.addEventListener('click', () => {
-        if (window.confirm('¿Estás seguro de eliminar el post?')) {
+        if (window.confirm('¿Are you sure you want to delete the comment??')) {
             deleteFunction(idPost, post);
         }
-});
+    });
+    const editFunction = (id, posts) => editPost(id, posts);
+     
+
+    const buttonEdit = viewPostUser.querySelector('#publicBtnEditPost');
+    const buttonPublic= viewPostUser.querySelector("#btnPublicpost");
+    buttonEdit.addEventListener('click', () => {
+        buttonEdit.classList.remove('show');
+        buttonPublic.classList.add('hide');
+    });
+    buttonPublic.addEventListener('click', () => {
+        buttonEdit.classList.add('hide');
+        buttonPublic.classList.remove('show');
+    });
+    
+
     return viewPostUser;
 }
 
