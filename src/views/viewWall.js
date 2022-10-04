@@ -1,5 +1,5 @@
-import { getAuth, serverTimestamp, onSnapshot } from '../lib/firebase-funtion.js';
-import { savePost, onSnapshotFunction, deletePost, editPost, likePost, showsPost } from '../lib/firebase-root.js';
+import { getAuth, serverTimestamp,onSnapshot } from '../lib/firebase-funtion.js';
+import { savePost, onSnapshotFunction, deletePost, editPost, like,showsPost} from '../lib/firebase-root.js';
 
 const auth = getAuth();
 const callOnSnapShot = () => {
@@ -75,13 +75,13 @@ export const postView = (idPost, post) => {
      <textarea name='post' class='postUser hide' id='postUser' rows=5 autofocus>${post.post}</textarea>
      </section>
      </section>
-      <section class='containerIconsPost'>
-      <button class='btnPublicpost hide' id='btnPublicpost'>Public</button>
+      <button class='btnPublicpost hide' id='btnPublicpost'></button>
       <button class='btnEditPost' id='publicBtnEditPost'></button>
+      <button type="submit" id="trashImg"></button>
       <button type="submit" id="heartImg"></button>
       <button type="submit" class="heartRed hide" id="heartRed"></button>
-      <button type="submit" id="trashImg"></button>
-      </section>
+      <button class='icons' id='counter'>${post.like.length}</button>
+    
       
          `;
     viewPostUser.innerHTML = postPublic;
@@ -93,8 +93,7 @@ export const postView = (idPost, post) => {
             deleteFunction(idPost, post);
         }
     });
-    const editFunction = (id, posts) => editPost(id, posts);
-     
+    const editFunction = (id, post) => editPost(id, post);
     const buttonEdit = viewPostUser.querySelector('#publicBtnEditPost');
     const buttonPublic= viewPostUser.querySelector("#btnPublicpost");
     const postNew = viewPostUser.querySelector("#postUser")
@@ -118,7 +117,7 @@ export const postView = (idPost, post) => {
         postInitial.value = postEdited;
         postInitial.classList.remove('hide');
       });
-      const likeFunction = (idPost, idUser, isLike) => likePost(idPost, idUser, isLike);
+      const likeFunction = (idPost, idUser, isLike) => like(idPost, idUser, isLike);
       const buttonLike = viewPostUser.querySelector('#heartImg');
       const buttonRed= viewPostUser.querySelector('#heartRed')
       buttonLike.addEventListener('click', () => {
@@ -129,9 +128,19 @@ export const postView = (idPost, post) => {
         buttonRed.classList.add('hide');
         buttonLike.classList.remove('hide');
       });
-      
-
+      buttonLike.addEventListener('click', () => {
+          showsPost().then((res) => res.forEach((doc) => {
+            if (doc.id === idPost) {
+              if (doc.data().like.includes(auth.currentUser.uid)) {
+                likeFunction(idPost, auth.currentUser.uid, true);
+              } else {
+                likeFunction(idPost, auth.currentUser.uid, false);
+              }
+            }
+          }));
+        });
     return viewPostUser;
 }
+
 
 
