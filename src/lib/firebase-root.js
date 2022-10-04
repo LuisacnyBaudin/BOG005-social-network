@@ -3,7 +3,7 @@ import { app, db} from './firebaseConf.js';
 import { GoogleAuthProvider } from './firebase-funtion.js';
 import { logOut, provider, signInGoogle,loginUser,createUserAccount} from './firebaseAuth.js';
 import { changeView } from '../viewRoot/router.js';
-import { addDoc, collection, query, getDocs, deleteDoc, doc} from './firebase-funtion.js';
+import { addDoc, collection, query, getDocs, deleteDoc, doc, updateDoc, arrayUnion, arrayRemove, orderBy} from './firebase-funtion.js';
 
 //evento de firebase para registrar nuevo usuario y sus errores.
   export const userNew = (usuarioSignUp, passwordSignUp) => {
@@ -91,7 +91,7 @@ import { addDoc, collection, query, getDocs, deleteDoc, doc} from './firebase-fu
 //Desde aca empieza a conectarse a fireStore. 
 
   export const savePost = (post, userName, date) => addDoc(collection(db, 'post'), {
-    post, userName, date
+    post, userName, date, like: [],
   });
   export const showsPost = async () => {
     const querySnapshot = await getDocs(collection(db, 'post'));
@@ -99,9 +99,18 @@ import { addDoc, collection, query, getDocs, deleteDoc, doc} from './firebase-fu
   };
   
   export const onSnapshotFunction = () => {
-    const q = query(collection(db, 'post'));
+    const q = query(collection(db, 'post'), orderBy ("date", "desc"))
     return q;
 
   };
   export const deletePost = async (id, post) => await deleteDoc(doc(db, 'post', id));
-  export const editPost = async (id, post) => await getDocs(doc(db, 'post', id));
+  export const editPost =(id, postUpdate) => updateDoc(doc(db, 'post', id), { post: postUpdate });
+  export const like = (idPost, idUser, isLike) => {
+    if (!isLike) {
+      return updateDoc(doc(db, 'post', idPost), { like: arrayUnion(idUser) });
+    } else {
+      return updateDoc(doc(db, 'post', idPost), { like: arrayRemove(idUser) });
+    }
+  };
+  
+ 
