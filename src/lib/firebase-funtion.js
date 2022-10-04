@@ -20,9 +20,9 @@ export {
   serverTimestamp,
 //     orderBy,
 onSnapshot,
-//     updateDoc,
+updateDoc,
 doc,
  deleteDoc,
-//     arrayUnion,
-//     arrayRemove,
+arrayUnion,
+arrayRemove,
   } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js';

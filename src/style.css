@@ -325,7 +325,7 @@ header h1 {
 }
 
 #heartImg {
-  background: white url(./imagenes/heart.png) no-repeat center center;
+  background: white url(./imagenes/heart.prueba.png) no-repeat center center;
   background-size: 80% 80%;
   width: 20px;
   height: 20px;
@@ -334,6 +334,16 @@ header h1 {
   right: 400px;
   position: absolute;
 
+}
+#heartRed{
+  background: white url(./imagenes/heard\ red.png) no-repeat center center;
+  background-size: 80% 80%;
+  width: 20px;
+  height: 20px;
+  border: none;
+  margin-top: 240px;
+  right: 400px;
+  position: absolute;
 }
 
 #trashImg {
