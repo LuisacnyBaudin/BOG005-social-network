@@ -1,22 +1,7 @@
-import { getAuth, serverTimestamp,onSnapshot } from '../lib/firebase-funtion.js';
+import { getAuth, serverTimestamp,onSnapshot} from '../lib/firebase-funtion.js';
 import { savePost, onSnapshotFunction, deletePost, editPost, like,showsPost} from '../lib/firebase-root.js';
 
 const auth = getAuth();
-const callOnSnapShot = () => {
-    const queryCollection = onSnapshotFunction();
-    onSnapshot(queryCollection, (querySnapshot) => {
-        const viewPost = document.createElement('section');
-        querySnapshot.forEach((doc) => {
-            viewPost.setAttribute('class', 'gridSectionviewPost');
-            viewPost.appendChild(postView(doc.id, doc.data()));
-        });
-        const containerPost = document.createElement('section');
-        containerPost.setAttribute('class', 'gridSectioncontainerPost');
-        containerPost.appendChild(viewPost);
-        document.getElementById("postList").append(containerPost);
-
-    });
-};
 
 export default () => {
     const viewWall = `
@@ -32,11 +17,30 @@ export default () => {
     <div id="errorMessagePost"></div>
     </section>
     `;
-
     const pagWall = document.createElement('section');
     pagWall.id = "postList"
     pagWall.innerHTML = viewWall;
     const sendPost = pagWall.querySelector('#sendPost');
+
+    const callOnSnapShot = () => {
+        const queryCollection = onSnapshotFunction();
+        onSnapshot(queryCollection, (querySnapshot) => {
+            if (document.querySelector("#postList #gridSectioncontainerPost")) {
+                document.querySelector("#postList #gridSectioncontainerPost").remove();
+            }
+            const viewPost = document.createElement('section');
+            querySnapshot.forEach((doc) => {
+                viewPost.setAttribute('class', 'gridSectionviewPost');
+                viewPost.appendChild(postView(doc.id, doc.data()));
+            });
+            const containerPost = document.createElement('section');
+            containerPost.setAttribute('class', 'gridSectioncontainerPost');
+            containerPost.appendChild(viewPost);
+            viewPost.id= "gridSectioncontainerPost";
+            document.getElementById("postList").append(containerPost);
+
+        });
+    };
 
     // Dandole vida al boton Sendpost
     sendPost.addEventListener('click', () => {
@@ -45,7 +49,6 @@ export default () => {
         if (validationInputPost !== '') {
             const userName = auth.currentUser;
             const actualDate = serverTimestamp();
-            pagWall.querySelector('.gridSectioncontainerPost').innerHTML=''
             savePost(validationInputPost, userName.email, actualDate).then(() => {
                 // paintPostview();
                 const cleanPost = document.querySelector('#postUser');
@@ -78,14 +81,14 @@ export const postView = (idPost, post) => {
       <button class='btnPublicpost hide' id='btnPublicpost'></button>
       <button class='btnEditPost' id='publicBtnEditPost'></button>
       <button type="submit" id="trashImg"></button>
-      <button type="submit" id="heartImg"></button>
+      <button type="submit" class="${post.like.includes(auth.lastNotifiedUid) ? 'rojo':'blanco'}" id="heartImg"></button>
       <button type="submit" class="heartRed hide" id="heartRed"></button>
       <button class='icons' id='counter'>${post.like.length}</button>
     
       
          `;
     viewPostUser.innerHTML = postPublic;
-    const deleteFunction = (id, posts) => deletePost(id, posts);
+    const deleteFunction = (id, post) => deletePost(id, post);
 
     const buttonDelete = viewPostUser.querySelector('#trashImg');
     buttonDelete.addEventListener('click', () => {

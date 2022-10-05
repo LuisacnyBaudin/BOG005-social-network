@@ -99,7 +99,7 @@ import { addDoc, collection, query, getDocs, deleteDoc, doc, updateDoc, arrayUni
   };
   
   export const onSnapshotFunction = () => {
-    const q = query(collection(db, 'post'), orderBy ("date", "desc"))
+    const q = query(collection(db, 'post'), orderBy ("date", "desc"));
     return q;
 
   };
