@@ -333,7 +333,7 @@ header h1 {
   width: 20px;
   height: 20px;
   border: none;
-  margin-top: 200px;
+  margin: 2px;
   right: 400px;
 }
 #heartRed{
@@ -342,7 +342,7 @@ header h1 {
   width: 20px;
   height: 20px;
   border: none;
-  margin-top: 200px;
+  margin: 2px;
   right: 400px;
 }
 
@@ -353,7 +353,7 @@ header h1 {
   width: 20px;
   height: 20px;
   border: none;
-  margin-top: 200px;
+  margin: 2px;
   right: 440px;
 }
 
@@ -364,7 +364,7 @@ header h1 {
   width: 20px;
   height: 20px;
   border: none;
-  margin-top: 200px;
+  margin: 2px;
   right: 480px;
   
 }
@@ -389,23 +389,33 @@ header h1 {
   width: 20px;
   height: 20px;
   border: none;
-  margin-top: 200px;
+  margin: 2px 5px;
   right: 400px;
 }
 .gridSectionviewPost{
   display: grid;
   grid-template-columns: 1fr;
 }
-/* .gridSectioncontainerPost{
+.gridSectioncontainerPost{
   display: grid;
-  grid-template-columns: 1fr 1fr;
 }
- */
+.containerPost{
+  margin-bottom: 2em;
+}
 .hide{
   display:none;
 }
 .show{
 display: block;
+}
+.rojo{
+  background: white url(./imagenes/heart.png) no-repeat center center !important;
+  background-size: 80% 80% !important;
+}
+
+.blanco{
+  background: white url(./imagenes/love.png) no-repeat center center !important;
+  background-size: 80% 80% !important;
 }
  
 @media only screen and (max-width : 600px) {
@@ -419,3 +429,4 @@ display: block;
     font-size: 30px;
   }
 }
+
