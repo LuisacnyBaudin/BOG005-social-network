@@ -7,9 +7,8 @@ export default () => {
     const viewWall = `
     <header id="headerWall">
     <button id="profile"></button>
+    <button id=Title>FoodLab</button>
     <button id="singOut"></button>
-    <input type="text" placeholder="Search for creators and projects" id="searchtwo">
-    <button type="submit" id="search"></button>
     </header>
     <section id="pagWall">
     <textarea name='post' id='postUser' rows= 4 placeholder='What are you thinking?' autofocus></textarea>
@@ -46,22 +45,22 @@ export default () => {
     sendPost.addEventListener('click', () => {
         const validationInputPost = pagWall.querySelector('#postUser').value;
         const errorMessagePost = pagWall.querySelector('#errorMessagePost');
-        if (validationInputPost !== '') {
-            const userName = auth.currentUser;
-            const actualDate = serverTimestamp();
-            savePost(validationInputPost, userName.email, actualDate).then(() => {
-                // paintPostview();
-                const cleanPost = document.querySelector('#postUser');
-                cleanPost.value = '';
-            });
-        } else {
-            errorMessagePost.innerHTML = 'Please enter a value in the field';
-        }
-    });
+         if (validationInputPost === '') {
+          errorMessagePost.innerHTML = 'Please enter a value in the field'; 
+        }else{
+        const userName = auth.currentUser;
+        const actualDate = serverTimestamp();
+        savePost(validationInputPost, userName.email, actualDate).then(() => {
+            // paintPostview();
+            const cleanPost = document.querySelector('#postUser', errorMessagePost);
+            cleanPost.value = '';
+        }); 
+    }
+});
     //Para cerrar sesión 
     const buttonSingOut = pagWall.querySelector('#singOut');
     buttonSingOut.addEventListener('click', () => {
-        window.location.hash = "#/";
+    window.location.hash = "#/";
     });
     setTimeout(() => { callOnSnapShot(); }, 1000);
     return pagWall;
@@ -71,6 +70,12 @@ export const postView = (idPost, post) => {
     const viewPostUser = document.createElement('section');
     const postPublic = `
     <section class='containerPost' id='postView'>
+    <header id="headerWall">
+    <button id="profile"></button>
+    <button id=Title>FoodLab</button>
+    <button id="TitleWelcome"> Welcome</button>
+    <button id="singOut"></button>
+    </header>
     <section class='userName'>${post.userName}</section>
      <section class='modalContainer' id='containerModal'>
      <section class='modal' id='modal'>
