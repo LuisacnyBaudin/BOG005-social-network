@@ -39,25 +39,31 @@ export default () => {
             document.getElementById("postList").append(containerPost);
 
         });
-    };  setTimeout(() => { callOnSnapShot(); }, 1000);
+    };
 
     // Dandole vida al boton Sendpost
     sendPost.addEventListener('click', () => {
         const validationInputPost = pagWall.querySelector('#postUser').value;
         const errorMessagePost = pagWall.querySelector('#errorMessagePost');
-        if (validationInputPost !== '') {
-            const userName = auth.currentUser;
-            const actualDate = serverTimestamp();
-            savePost(validationInputPost, userName.email, actualDate).then(() => {
-                // paintPostview();
-                const cleanPost = document.querySelector('#postUser');
-                cleanPost.value = '';
-            });
-        } else {
-            errorMessagePost.innerHTML = 'Please enter a value in the field';
-        }
+         if (validationInputPost === '') {
+          errorMessagePost.innerHTML = 'Please enter a value in the field'; 
+        }else{
+        const userName = auth.currentUser;
+        const actualDate = serverTimestamp();
+        savePost(validationInputPost, userName.email, actualDate).then(() => {
+            // paintPostview();
+            const cleanPost = document.querySelector('#postUser', errorMessagePost);
+            cleanPost.value = '';
+        }); 
+    }
+});
+    //Para cerrar sesión 
+    const buttonSingOut = pagWall.querySelector('#singOut');
+    buttonSingOut.addEventListener('click', () => {
+    window.location.hash = "#/";
     });
-     return pagWall;
+    setTimeout(() => { callOnSnapShot(); }, 1000);
+    return pagWall;
 };
 //Vista de nuestro segundo Post. 
 export const postView = (idPost, post) => {
@@ -67,7 +73,7 @@ export const postView = (idPost, post) => {
     <header id="headerWall">
     <button id="profile"></button>
     <button id=Title>FoodLab</button>
-    <button id="TitleWelcome"> Welcome, ${post.userName}</button>
+    <button id="TitleWelcome"> Welcome</button>
     <button id="singOut"></button>
     </header>
     <section class='userName'>${post.userName}</section>
@@ -141,12 +147,7 @@ export const postView = (idPost, post) => {
             }
           }));
         });
-        const buttonSingOut = viewPostUser.querySelector('#singOut');
-        buttonSingOut.addEventListener('click', () => {
-        window.location.hash = "#/";
-    });
     return viewPostUser;
-    
 }
 
 

@@ -285,6 +285,7 @@ header h1 {
   cursor: auto;
   left: 39%;
   }
+
 #pagWall {
   display: inline-grid;
   margin: 75px;
@@ -421,7 +422,11 @@ display: block;
 
 .blanco{
   background: white url(./imagenes/love.png) no-repeat center center !important;
-  background-size: 80% 80% !important;
+  background-size: 80% 80% !
+  important;
+}
+#errorMessagePost{
+  color:red; 
 }
  
 @media only screen and (max-width : 600px) {
@@ -445,12 +450,13 @@ display: block;
   #sendPost {
     position: fixed;
     border: none;
+    margin-top: 40px;
     background: #34a853b2 url(./imagenes/send.png) no-repeat center center;
     background-size: 50% 50%;
-   
+    left: 300px;
   }
   #TitleWelcome{
-    width: 300px;
+    width: 290px;
     margin-top: 70px;
     font-weight: bold;
     font-size: 15px;
@@ -459,9 +465,14 @@ display: block;
     cursor: auto;
     left: 48px;
     }
+    /* .gridSectionviewPost{
 
-    .gridSectionviewPost{
-      margin-top: 50px;
+    } */
+    
+    #errorMessagePost{
+      font-size: 15px;
+      margin-top: 100px;
+      color:red; 
     }
 
 }

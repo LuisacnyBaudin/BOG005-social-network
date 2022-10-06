@@ -101,7 +101,6 @@ import { addDoc, collection, query, getDocs, deleteDoc, doc, updateDoc, arrayUni
   export const onSnapshotFunction = () => {
     const q = query(collection(db, 'post'), orderBy ("date", "desc"));
     return q;
-
   };
   export const deletePost = async (id, post) => await deleteDoc(doc(db, 'post', id));
   export const editPost =(id, postUpdate) => updateDoc(doc(db, 'post', id), { post: postUpdate });
