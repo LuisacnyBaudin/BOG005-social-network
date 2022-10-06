@@ -7,9 +7,8 @@ export default () => {
     const viewWall = `
     <header id="headerWall">
     <button id="profile"></button>
+    <button id=Title>FoodLab</button>
     <button id="singOut"></button>
-    <input type="text" placeholder="Search for creators and projects" id="searchtwo">
-    <button type="submit" id="search"></button>
     </header>
     <section id="pagWall">
     <textarea name='post' id='postUser' rows= 4 placeholder='What are you thinking?' autofocus></textarea>
@@ -40,7 +39,7 @@ export default () => {
             document.getElementById("postList").append(containerPost);
 
         });
-    };
+    };  setTimeout(() => { callOnSnapShot(); }, 1000);
 
     // Dandole vida al boton Sendpost
     sendPost.addEventListener('click', () => {
@@ -58,19 +57,19 @@ export default () => {
             errorMessagePost.innerHTML = 'Please enter a value in the field';
         }
     });
-    //Para cerrar sesión 
-    const buttonSingOut = pagWall.querySelector('#singOut');
-    buttonSingOut.addEventListener('click', () => {
-        window.location.hash = "#/";
-    });
-    setTimeout(() => { callOnSnapShot(); }, 1000);
-    return pagWall;
+     return pagWall;
 };
 //Vista de nuestro segundo Post. 
 export const postView = (idPost, post) => {
     const viewPostUser = document.createElement('section');
     const postPublic = `
     <section class='containerPost' id='postView'>
+    <header id="headerWall">
+    <button id="profile"></button>
+    <button id=Title>FoodLab</button>
+    <button id="TitleWelcome"> Welcome, ${post.userName}</button>
+    <button id="singOut"></button>
+    </header>
     <section class='userName'>${post.userName}</section>
      <section class='modalContainer' id='containerModal'>
      <section class='modal' id='modal'>
@@ -142,7 +141,12 @@ export const postView = (idPost, post) => {
             }
           }));
         });
+        const buttonSingOut = viewPostUser.querySelector('#singOut');
+        buttonSingOut.addEventListener('click', () => {
+        window.location.hash = "#/";
+    });
     return viewPostUser;
+    
 }
 
 

@@ -3,7 +3,7 @@
   font-family: 'Maven Pro', sans-serif;
 }
 
-body {
+body{
   background-color: #F2F2F2;
   margin: 0%;
   padding: 0%;
@@ -248,16 +248,25 @@ header h1 {
 #profile {
   position: fixed;
   left: 30px;
-  background: #F2CFBB url(./imagenes/user.png) no-repeat center center;
+  background: #F2CFBB url(./imagenes/logoquimicomanz-removebg-preview1.png) no-repeat center center;
   background-size: 90% 100%;
-  width: 37px;
-  height: 30px;
+  width: 40px;
+  height: 45px;
   border: none;
-  margin-top: 20px;
+  margin-top: 15px;
+  cursor: auto;
 }
-
-#singOut {
+#Title{
+  font-size: 20px;
+  font-weight: bold;
   position: fixed;
+  left: 11px;
+  margin-top: 15px;
+  border: none;
+  cursor:auto; 
+}
+#singOut {
+  position:fixed;
   right: 30px;
   background: #F2CFBB url(./imagenes/exit.png) no-repeat center center;
   background-size: 90% 100%;
@@ -266,34 +275,24 @@ header h1 {
   border: none;
   margin-top: 20px;
 }
-
-#searchtwo {
-  width: 250px;
-  height: 40px;
-  border-radius: 15px;
-  text-align: center;
-  margin-top: 15px;
-}
-
-#search {
-  position: fixed;
+#TitleWelcome{
+  width: 300px;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 15px;
+  position:fixed;
   border: none;
-  background: #F2CFBB url(./imagenes/search.png) no-repeat center center;
-  background-size: 90% 100%;
-  margin-top: 22px;
-  right: 515px;
-  width: 25px;
-  height: 25px;
-}
-
+  cursor: auto;
+  left: 39%;
+  }
 #pagWall {
   display: inline-grid;
   margin: 75px;
   padding: 10px;
   font-size: 18px;
   font-weight: bold;
+  left: 3%;
 }
-
 #pagWall #postUser {
   position: relative;
   width: 300px;
@@ -301,26 +300,27 @@ header h1 {
   margin-bottom: 20px;
   border-radius: 15px;
   font-size: 20px;
-  left: 3%;
+  left: -1%;
+  padding: 10px;
 }
 #textAreaInitial{
   position: relative;
   width: 300px;
   height: 50px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border-radius: 15px;
   font-size: 20px;
-  left: 1%;
+  left: -0%;
 }
 #containerIconsPost{
   position:fixed;
 }
 
 #sendPost {
-  position: absolute;
+  position: relative;
   border: none;
-  right: 480px;
-  margin-top: 10px;
+  left: 318px;
+  margin-top:-61px;
   background: #34a853b2 url(./imagenes/send.png) no-repeat center center;
   background-size: 50% 50%;
   width: 30px;
@@ -377,6 +377,10 @@ header h1 {
   width: 30px;
   height: 30px;
 }
+.userName{
+  font-weight: bold;
+  margin-bottom: 0px;
+}
 
 .postUser{
   width: 300px;
@@ -395,6 +399,7 @@ header h1 {
 .gridSectionviewPost{
   display: grid;
   grid-template-columns: 1fr;
+  margin-top: -50px;
 }
 .gridSectioncontainerPost{
   display: grid;
@@ -402,6 +407,7 @@ header h1 {
 .containerPost{
   margin-bottom: 2em;
 }
+
 .hide{
   display:none;
 }
@@ -428,5 +434,35 @@ display: block;
     padding-top: 5px;
     font-size: 30px;
   }
+  #pagWall #postUser {
+    position: fixed;
+    margin-top: 30px;
+    border-radius: 15px;
+    font-size: 15px;
+    left: 48px;
+  }
+ 
+  #sendPost {
+    position: fixed;
+    border: none;
+    background: #34a853b2 url(./imagenes/send.png) no-repeat center center;
+    background-size: 50% 50%;
+   
+  }
+  #TitleWelcome{
+    width: 300px;
+    margin-top: 70px;
+    font-weight: bold;
+    font-size: 15px;
+    position:fixed;
+    border: none;
+    cursor: auto;
+    left: 48px;
+    }
+
+    .gridSectionviewPost{
+      margin-top: 50px;
+    }
+
 }
 

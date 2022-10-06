@@ -17,7 +17,7 @@ export default () => {
         <h2> Join the recipe lab </h2>
         <button id="buttonGoogle" class="buttonGoogle"><a href="#/"> Sing up with Google </a>
         <img src="./imagenes/logo google.png" class="logo-google"></button>
-        <h3>ó</h3>
+        <h3>or</h3>
         <button id="buttonEmail" class="buttonEmail">Sing up with Email </button>
         <h4>Already registered?</h4>
         <button id="buttonSingin" class="buttonSingin"> Sing in </button>
