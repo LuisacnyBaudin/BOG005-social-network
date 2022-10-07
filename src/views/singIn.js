@@ -14,12 +14,14 @@ export default () => {
     const viewSingIn = `
     <header id="header">
     <button id="backHome"></button>
-    <h1>Sing In</h1>
+    <h1 class="titleSingIn">Sing In</h1>
+    <button id="profileSingIn"></button>
+    <button id=TitleSingIn>FoodLab</button>
     </header>
     <section id="pagSingIn">
     <button id="buttonGoogle" class="buttonGoogle"><a href="#" class="fa fa-google"> Login with Google </a>
     <img src="./imagenes/logo google.png" class="logo-google"></button>
-    <h3>ó</h3>
+    <h3>or</h3>
     <label for="text">  Username or E-mail </label>
     <input type="text" id="userName" name="userName">
     <label for="text"> Password </label>

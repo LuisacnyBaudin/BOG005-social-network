@@ -7,11 +7,10 @@ export const clickRegister = (section) => {
   const passwordSignUp = section.querySelector('#passwordCreate').value;
   const successfulOk = section.querySelector('#successRegister');
   const voidInput = (userNameSignUp.trim() === '' || usuarioSignUp.trim() === ''||passwordSignUp.trim() === '');
-  errorMessageInput.innerHTML = '';
-
+  // errorMessageInput.innerHTML = '';
   if (voidInput) {
     errorMessageInput.innerHTML = 'You must enter a value in the field';
-  userNew(usuarioSignUp, passwordSignUp);
+  userNew(userNameSignUp, usuarioSignUp, passwordSignUp);
   successfulOk.innerHTML = '';
 }
 };
@@ -21,6 +20,8 @@ export default () => {
   <header id="header">
   <button id="backHome"> </button>
   <h1 id="title">Register</h1>
+  <button id="profileRegister"></button>
+  <button id=titleRegister>FoodLab</button>
    </header>
     <section id="pagRegister">
     <label for="text" >  Full Name </label>
@@ -43,11 +44,9 @@ export default () => {
   buttonBack.addEventListener('click', () => {
   window.location.hash = "#/"; 
   });
-
   const buttonNext = registerSingIn.querySelector('#buttonNext');
   buttonNext.addEventListener('click', () => clickRegister(registerSingIn));
   return registerSingIn;
-  
 };
 
   
