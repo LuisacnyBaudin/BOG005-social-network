@@ -6,8 +6,8 @@ import { changeView } from '../viewRoot/router.js';
 import { addDoc, collection, query, getDocs, deleteDoc, doc, updateDoc, arrayUnion, arrayRemove, orderBy} from './firebase-funtion.js';
 
 //evento de firebase para registrar nuevo usuario y sus errores.
-  export const userNew = (usuarioSignUp, passwordSignUp) => {
-    createUserAccount(usuarioSignUp, passwordSignUp)
+  export const userNew = (userNameSignUp, usuarioSignUp, passwordSignUp) => {
+    createUserAccount(userNameSignUp, usuarioSignUp, passwordSignUp)
       .then((userCredential) => {
        changeView('#/wall'); 
       })
