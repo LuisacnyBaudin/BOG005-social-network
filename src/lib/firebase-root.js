@@ -4,12 +4,13 @@ import { GoogleAuthProvider } from './firebase-funtion.js';
 import { logOut, provider, signInGoogle,loginUser,createUserAccount} from './firebaseAuth.js';
 import { changeView } from '../viewRoot/router.js';
 import { addDoc, collection, query, getDocs, deleteDoc, doc, updateDoc, arrayUnion, arrayRemove, orderBy} from './firebase-funtion.js';
-
+import { postView } from '../views/viewWall.js';
 //evento de firebase para registrar nuevo usuario y sus errores.
-  export const userNew = (userNameSignUp, usuarioSignUp, passwordSignUp) => {
-    createUserAccount(userNameSignUp, usuarioSignUp, passwordSignUp)
+  export const userNew = (usuarioSignUp, passwordSignUp) => {
+    createUserAccount(usuarioSignUp, passwordSignUp)
       .then((userCredential) => {
        changeView('#/wall'); 
+       postView();
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -36,6 +37,7 @@ import { addDoc, collection, query, getDocs, deleteDoc, doc, updateDoc, arrayUni
       .then((userCredential) => {
        const user = userCredential.user;
        changeView('#/wall');
+       postView();
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -65,7 +67,7 @@ import { addDoc, collection, query, getDocs, deleteDoc, doc, updateDoc, arrayUni
      // The signed-in user info.
      const user = result.user;
      changeView('#/wall');
-
+     postView();
       })
       //...
     .catch((error) => {
@@ -80,14 +82,6 @@ import { addDoc, collection, query, getDocs, deleteDoc, doc, updateDoc, arrayUni
     alert(errorMessage);
   });
   }  
-//Evento salir 
-    export const logOutEvent = (auth) => {
-    logOut(auth)
-    .then(() => {
-      changeView('#/');
-
-    });
-  };
 //Desde aca empieza a conectarse a fireStore. 
 
   export const savePost = (post, userName, date) => addDoc(collection(db, 'post'), {
@@ -111,5 +105,11 @@ import { addDoc, collection, query, getDocs, deleteDoc, doc, updateDoc, arrayUni
       return updateDoc(doc(db, 'post', idPost), { like: arrayRemove(idUser) });
     }
   };
-  
- 
+
+ //Evento salir 
+ export const logOutEvent = (auth) => {
+  logOut(auth)
+  .then(() => {
+    changeView('#/');
+  });
+};

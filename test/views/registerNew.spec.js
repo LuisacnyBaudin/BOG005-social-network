@@ -1,0 +1,1 @@
+import { clickRegister } from "../../src/views/registerNew.js";

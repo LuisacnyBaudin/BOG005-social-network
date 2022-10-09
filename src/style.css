@@ -96,7 +96,7 @@ p {
 
 #pagRegister {
   display: inline-grid;
-  margin: 80px;
+  margin: 100px;
   padding: 20px;
   font-size: 25px;
   font-weight: bold;
@@ -124,17 +124,21 @@ p {
   font-size: 20px;
   color:red;
 }
+#successRegister{
+  font-size: 20px;
+  color: green;
+}
 
 .buttonNext {
-  position: fixed;
+  position: relative;
   background-color: #F2CFBB;
-  margin-top: 450px;
+  left: 43px;
+  margin-top: 30px;
   width: 200px;
   cursor: pointer;
   border-radius: 20px;
   font-size: 20px;
   font-weight: bold;
-  right: 30px;
 }
 
 .buttonNext:hover {
@@ -327,7 +331,7 @@ header h1 {
   width: 300px;
   margin-top: 10px;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 20px;
   position:fixed;
   border: none;
   cursor: auto;
@@ -519,15 +523,11 @@ display: block;
     margin: 50px;
     position: relative;
     right: 20px;
-    top:20px;
+    top: 39px;
   }  
  #title{
   font-size: 25px;
  }
-  .buttonNext {
-  top: 0px; 
-  left: 95px;
-  }
   #profileRegister{
     left: 265px;
   }

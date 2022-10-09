@@ -1,5 +1,5 @@
 import { getAuth, serverTimestamp,onSnapshot} from '../lib/firebase-funtion.js';
-import { savePost, onSnapshotFunction, deletePost, editPost, like,showsPost} from '../lib/firebase-root.js';
+import { savePost, onSnapshotFunction, deletePost, editPost, like,showsPost,logOutEvent} from '../lib/firebase-root.js';
 
 const auth = getAuth();
 
@@ -56,15 +56,13 @@ export default () => {
             cleanPost.value = '';
         }); 
     }
-});
+}); setTimeout(() => {callOnSnapShot(); }, 1000);
+
     //Para cerrar sesión 
     const buttonSingOut = pagWall.querySelector('#singOut');
-    buttonSingOut.addEventListener('click', () => {
-    window.location.hash = "#/";
-    });
-    setTimeout(() => { callOnSnapShot(); }, 1000);
+    buttonSingOut.addEventListener('click',() => logOutEvent(auth));
     return pagWall;
-};
+}; 
 //Vista de nuestro segundo Post. 
 export const postView = (idPost, post) => {
     const viewPostUser = document.createElement('section');

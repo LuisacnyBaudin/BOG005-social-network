@@ -1,18 +1,17 @@
 import {userNew} from '../lib/firebase-root.js';
 
 export const clickRegister = (section) => {
-  const userNameSignUp = section.querySelector('#fullName').value;
   const errorMessageInput = section.querySelector('#errorInput');
   const usuarioSignUp = section.querySelector('#Email').value;
   const passwordSignUp = section.querySelector('#passwordCreate').value;
   const successfulOk = section.querySelector('#successRegister');
-  const voidInput = (userNameSignUp.trim() === '' || usuarioSignUp.trim() === ''||passwordSignUp.trim() === '');
+  const voidInput = (usuarioSignUp.trim() === ''||passwordSignUp.trim() === '');
   // errorMessageInput.innerHTML = '';
   if (voidInput) {
     errorMessageInput.innerHTML = 'You must enter a value in the field';
-  userNew(userNameSignUp, usuarioSignUp, passwordSignUp);
-  successfulOk.innerHTML = '';
-}
+  }
+  userNew(usuarioSignUp, passwordSignUp);
+  successfulOk.innerHTML = '¡The user has been created successfully!';
 };
 
 export default () => {
@@ -24,8 +23,6 @@ export default () => {
   <button id=titleRegister>FoodLab</button>
    </header>
     <section id="pagRegister">
-    <label for="text" >  Full Name </label>
-    <input type="text" id="fullName" name="fullName">
     <label for="text">  E-mail </label>
     <input type="email" id="Email" name="Email">
     <label for="text">  Create your password    </label>
