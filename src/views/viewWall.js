@@ -45,10 +45,10 @@ export default () => {
     sendPost.addEventListener('click', () => {
         const validationInputPost = pagWall.querySelector('#postUser').value;
         const errorMessagePost = pagWall.querySelector('#errorMessagePost');
-         if (validationInputPost === '') {
+        if (validationInputPost === '') {
           errorMessagePost.innerHTML = 'Please enter a value in the field'; 
-          
-        }else{
+        } else{
+        errorMessagePost.innerHTML = '';
         const userName = auth.currentUser;
         const actualDate = serverTimestamp();
         savePost(validationInputPost, userName.email, actualDate).then(() => {
@@ -56,8 +56,10 @@ export default () => {
             const cleanPost = document.querySelector('#postUser', errorMessagePost);
             cleanPost.value = '';
         }); 
-    }
-}); setTimeout(() => {callOnSnapShot(); }, 1000);
+  }
+}); 
+
+ setTimeout(() => {callOnSnapShot(); }, 1000);
 
     //Para cerrar sesión 
     const buttonSingOut = pagWall.querySelector('#singOut');

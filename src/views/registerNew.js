@@ -5,18 +5,15 @@ export const clickRegister = (section) => {
   const usuarioSignUp = section.querySelector('#Email').value;
   const passwordSignUp = section.querySelector('#passwordCreate').value;
   const successfulOk = section.querySelector('#successRegister');
-  const voidInput = (usuarioSignUp.trim() === ''||passwordSignUp.trim() === '');
+  const voidInput = (usuarioSignUp.trim() === ''|| passwordSignUp.trim() === '');
   errorMessageInput.innerHTML = '';
   if (voidInput) {
     errorMessageInput.innerHTML = 'You must enter a value in the field';
-  } 
-  if(usuarioSignUp != " " || passwordSignUp != " "){ 
+  } if(successfulOk != ""){ 
   userNew(usuarioSignUp, passwordSignUp);
-  successfulOk.innerHTML = '';
+  successfulOk.innerHTML= "Congrats";
   }
 };
-const buttonNext = registerSingIn.querySelector('#buttonNext');
-
 
 export default () => {
   const newRegister = `

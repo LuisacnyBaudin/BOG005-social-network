@@ -43,6 +43,9 @@ import { postView } from '../views/viewWall.js';
         const errorCode = error.code;
         const errorMessage = document.querySelector('#errorMessage');
         switch (errorCode) {
+          case '':
+            errorMessage.innerHTML = '';
+            break;
           case 'auth/invalid-email':
             errorMessage.innerHTML = 'Invalid email';
             break;
@@ -52,7 +55,7 @@ import { postView } from '../views/viewWall.js';
           case 'auth/wrong-password':
             errorMessage.innerHTML = 'Incorrect password';
             break;
-          default:
+          default: 
             break;
         }
       });
