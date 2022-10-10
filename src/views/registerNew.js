@@ -9,11 +9,11 @@ export const clickRegister = (section) => {
   errorMessageInput.innerHTML = '';
   if (voidInput) {
     errorMessageInput.innerHTML = 'You must enter a value in the field';
-  } if(successfulOk != ""){ 
+  } else{
   userNew(usuarioSignUp, passwordSignUp);
-  successfulOk.innerHTML= "Congrats";
-  }
+  successfulOk.innerHTML= "";
 };
+}
 
 export default () => {
   const newRegister = `
@@ -30,7 +30,7 @@ export default () => {
     <input type="password" id="passwordCreate" name="passwordCreate">
     <div id="errorMessage"></div>
     <div id="errorInput"></div>
-    <h1 id='successRegister'></h1>
+    <h1 id='successRegister' class='successRegister'></h1>
     <button id="buttonNext" class="buttonNext">Next</button>
     </section>
     `;
