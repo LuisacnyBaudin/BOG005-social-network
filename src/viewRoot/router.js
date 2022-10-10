@@ -4,9 +4,9 @@ const changeView = (route) => {
   const root = document.getElementById('root');
   root.innerHTML = '';
   switch (route) {
-    case '': {
-      return root.appendChild(components.homePage());
-    }
+    // case '': {
+    //   return root.appendChild(components.homePage());
+    // }
     case '#/': {
       return root.appendChild(components.homePage());
     }

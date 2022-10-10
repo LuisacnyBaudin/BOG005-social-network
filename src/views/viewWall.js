@@ -47,6 +47,7 @@ export default () => {
         const errorMessagePost = pagWall.querySelector('#errorMessagePost');
          if (validationInputPost === '') {
           errorMessagePost.innerHTML = 'Please enter a value in the field'; 
+          
         }else{
         const userName = auth.currentUser;
         const actualDate = serverTimestamp();

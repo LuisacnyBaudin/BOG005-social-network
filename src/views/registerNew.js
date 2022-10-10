@@ -6,13 +6,17 @@ export const clickRegister = (section) => {
   const passwordSignUp = section.querySelector('#passwordCreate').value;
   const successfulOk = section.querySelector('#successRegister');
   const voidInput = (usuarioSignUp.trim() === ''||passwordSignUp.trim() === '');
-  // errorMessageInput.innerHTML = '';
+  errorMessageInput.innerHTML = '';
   if (voidInput) {
     errorMessageInput.innerHTML = 'You must enter a value in the field';
-  }
+  } 
+  if(usuarioSignUp != " " || passwordSignUp != " "){ 
   userNew(usuarioSignUp, passwordSignUp);
-  successfulOk.innerHTML = '¡The user has been created successfully!';
+  successfulOk.innerHTML = '';
+  }
 };
+const buttonNext = registerSingIn.querySelector('#buttonNext');
+
 
 export default () => {
   const newRegister = `
