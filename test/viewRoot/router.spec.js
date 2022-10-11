@@ -21,7 +21,7 @@ const ViewWallTest = () => {
   return sectionviewallTest;
 };
 const ViewNullTest = () => {
-  const errorTest= '<p id="viewTest">Esto es un texto de prueba para notFound 404</p>';
+  const errorTest= '<p id="viewTest">¡Page not found!</p>';
   const sectionErrorTest = document.createElement('section');
   sectionErrorTest.innerHTML = errorTest;
   return sectionErrorTest;

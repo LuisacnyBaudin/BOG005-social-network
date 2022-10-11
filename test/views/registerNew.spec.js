@@ -45,6 +45,6 @@ jest.mock('../../src/lib/firebase-funtion.js');
         buttonCreate.addEventListener('click', () => clickRegister(testCreateUser));
         buttonCreate.dispatchEvent(new Event('click'));
         const successfulOkCreate = testCreateUser.querySelector('#successRegister');
-        expect(successfulOkCreate.textContent).toBe('¡The user has been created successfully!');
+        expect(successfulOkCreate.textContent).toBe('');
         expect(createUsertest).toHaveBeenCalled();
       });

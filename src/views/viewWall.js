@@ -8,6 +8,7 @@ export default () => {
     <header id="headerWall">
     <button id="profile"></button>
     <button id=Title>FoodLab</button>
+    <button id="TitleWelcome">Welcome</button>
     <button id="singOut"></button>
     </header>
     <section id="pagWall">
